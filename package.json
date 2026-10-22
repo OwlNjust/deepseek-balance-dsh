@@ -1,6 +1,6 @@
 {
-  "name": "dsh-deepseek-balance",
-  "version": "0.2.0",
+  "name": "deepseek-balance-dsh",
+  "version": "0.2.1",
   "description": "DeepSeek balance monitor for DeepSeek Harness: real-time topped-up balance, period consumption (per model) and token usage (cache-hit input / cache-miss input / output), plus peak/off-peak price reminder (Liang Wenfeng / Liang Wengu).",
   "license": "MIT",
   "type": "module",
@@ -33,7 +33,10 @@
     "plugin",
     "balance",
     "usage",
-    "monitor"
+    "monitor",
+    "dsh-plugin",
+    "deepseek-balance",
+    "npm"
   ],
   "dsh": {
     "bundle": {
@@ -46,5 +49,13 @@
   "scripts": {
     "test": "node test/phase.test.mjs && node test/window.test.mjs && node test/config.test.mjs && node test/store.test.mjs && node test/i18n.test.mjs && node test/service.test.mjs && node test/tool.test.mjs && node test/routes.test.mjs && node test/package.test.mjs",
     "check": "for f in lib/*.js; do node --check \"$f\" || exit 1; done"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OwlNjust/DSH-DeepSeek-Balance.git"
+  },
+  "homepage": "https://github.com/OwlNjust/DSH-DeepSeek-Balance#readme",
+  "bugs": {
+    "url": "https://github.com/OwlNjust/DSH-DeepSeek-Balance/issues"
   }
 }

@@ -2,6 +2,9 @@
 
 [![test](https://github.com/OwlNjust/DSH-DeepSeek-Balance/actions/workflows/test.yml/badge.svg)](https://github.com/OwlNjust/DSH-DeepSeek-Balance/actions/workflows/test.yml)
 
+npm 包名：[`deepseek-balance-dsh`](https://www.npmjs.com/package/deepseek-balance-dsh) —— 仓库名为 `DSH-DeepSeek-Balance`；
+npm 上的 `dsh-deepseek-balance` 是**另一个无关项目**，与本插件无关。
+
 主题：[`dsh-plugin`](https://github.com/topics/dsh-plugin) · [`deepseek-harness`](https://github.com/topics/deepseek-harness) · [`deepseek`](https://github.com/topics/deepseek)
 
 > DeepSeek Harness 的 DeepSeek 余额与用量实时监控插件 —— 右下角悬浮小组件，
@@ -14,23 +17,31 @@
 **安装只需一步：** 把 `https://github.com/OwlNjust/DSH-DeepSeek-Balance`
 发给您的 agent，它就知道如何自动安装本插件。手动安装步骤如下。
 
-## 安装（面向 agent，无需 npm）
+## 安装
 
-本包**零运行时依赖、不发布 npm**，提供两条安装路线——**同一 profile 只能选一条**：
-两条都用会让插件 id 被插入两次（见「agent 注意事项」）。
+本插件**零运行时依赖**，已发布到 npm：[`deepseek-balance-dsh`](https://www.npmjs.com/package/deepseek-balance-dsh)。
+提供两条安装路线——**组合层安装**（npm 包名或本仓库）与**补丁层安装**（本地克隆，改源码调试用）。
+**同一 profile 只能选一条**：两条都用会让插件 id 被插入两次（见「agent 注意事项」）。
 
 ### 路线 A（推荐）：作为「组合包」安装（deepseek-harness ≥ 0.2.0）
 
 本包声明了 `"dsh": { "bundle": { "patch": "./cordis.patch.yml" } }`，所以 harness 的插件管理器
-可以直接把它当作组合包（profile 层）安装并自动激活——**无需手改任何文件**：
+可以直接把它当作组合包（profile 层）安装并自动激活——**无需手改任何文件**。两种装法等价：
 
-- **桌面端**：菜单栏 →「管理插件 / Manage plugins」→ 填入
-  `https://github.com/OwlNjust/DSH-DeepSeek-Balance`
-- **命令行**：
+- **npm 包名**（已发布）：
+
+  ```sh
+  dsh plugin --profile <profile> add deepseek-balance-dsh
+  ```
+
+- **Git 仓库**（源码为准）：
 
   ```sh
   dsh plugin --profile <profile> add https://github.com/OwlNjust/DSH-DeepSeek-Balance
   ```
+
+- **桌面端**：菜单栏 →「管理插件 / Manage plugins」→ 填入
+  `deepseek-balance-dsh` 或 `https://github.com/OwlNjust/DSH-DeepSeek-Balance`
 
 管理器会把包加入 profile 的 `dsh.profile.bundles`，包内的 `cordis.patch.yml`（含激活插件的
 `insert` 行）随之作为组合层生效。重载/重启 profile 后右下角即出现小组件。
@@ -50,8 +61,8 @@ dsh plugin --profile web add link:/tmp/dsh-deepseek-balance
 
 ```yaml
 - insert:
-    - id: dsh-deepseek-balance
-      name: dsh-deepseek-balance
+    - id: deepseek-balance-dsh
+      name: deepseek-balance-dsh
 ```
 
 4. 重启 profile：
@@ -71,14 +82,14 @@ curl -s http://127.0.0.1:3080/dsbal/state
 
 ### agent 注意事项
 
-- **不要**执行 `npm publish`；安装基于 git 仓库或本地克隆。
+- npm 包名是 **`deepseek-balance-dsh`**；**不要**用仓库名 `dsh-deepseek-balance` 发布——该名字在 npm 上属于一个无关项目。
 - **两条路线别混用**：路线 A 已由组合层插入插件行，若再手工追加同一 `insert` 行，插件 id 会被
   插入两次（cordis 按 id 折叠成一份，所以**不会报错**，只是组合树里多出一行、日后极易误判）。
   切换路线时先确认 `dsh.profile.bundles` 与 profile 的 `cordis.patch.yml` 只有一边生效；
   一条命令自检，结果必须是 `1`：
 
   ```sh
-  dsh --profile web --dump-config | grep -c 'id: dsh-deepseek-balance'
+  dsh --profile web --dump-config | grep -c 'id: deepseek-balance-dsh'
   ```
 
   若输出 `2`：删掉 `cordis.patch.yml` 里手写的那段（保留 `dsh.profile.bundles` 里的包，
@@ -86,7 +97,7 @@ curl -s http://127.0.0.1:3080/dsbal/state
   `dsh.profile.bundles` 移除本包。
 - 配置与余额历史保存在 `~/.deepseek-balance.json`（0600），**切勿回显其内容**。
 - 卸载：删除 `cordis.patch.yml` 中的行、删除
-  `~/.dsh/profiles/web/node_modules/dsh-deepseek-balance`，重启 `dsh web`。
+  `~/.dsh/profiles/web/node_modules/deepseek-balance-dsh`，重启 `dsh web`。
 
 ## 前置条件
 
@@ -147,7 +158,7 @@ curl -s http://127.0.0.1:3080/dsbal/state
 在 profile 的补丁层按 entry id 覆盖（`config:` 是**整体替换**，未写的字段回落默认值）：
 
 ```yaml
-- id: dsh-deepseek-balance
+- id: deepseek-balance-dsh
   config:
     pollIntervalMs: 900000     # 轮询周期，30s ~ 24h，默认 5 分钟
     historyDays: 180           # 余额快照保留天数 / 自定义窗口上限，1 ~ 400，默认 90

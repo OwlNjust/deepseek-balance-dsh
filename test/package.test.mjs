@@ -1,4 +1,4 @@
-// Packaging-contract tests for dsh-deepseek-balance.
+// Packaging-contract tests for deepseek-balance-dsh.
 //
 // The other two suites test behaviour; this one tests the *packaging* facts the
 // harness needs in order to activate the plugin at all:
@@ -57,7 +57,7 @@ function topLevelRows(yaml) {
 
 // ------------------------------------------------------------- package basics
 ok('package: 名字/版本合法，main 与 exports 指向真实文件', () => {
-  assert(pkg.name === 'dsh-deepseek-balance', `包名应为 dsh-deepseek-balance，实际 ${pkg.name}`)
+  assert(pkg.name === 'deepseek-balance-dsh', `包名应为 deepseek-balance-dsh，实际 ${pkg.name}`)
   assert(/^\d+\.\d+\.\d+/.test(pkg.version), `版本号不像 semver：${pkg.version}`)
   assert(pkg.main === 'lib/index.js', `main 应为 lib/index.js，实际 ${pkg.main}`)
   assert(existsSync(join(ROOT, pkg.main)), `main 文件不存在：${pkg.main}`)

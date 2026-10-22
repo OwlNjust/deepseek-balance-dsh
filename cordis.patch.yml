@@ -1,4 +1,4 @@
-# dsh-deepseek-balance composition rows.
+# deepseek-balance-dsh composition rows.
 #
 # This file is the package's own BUNDLE PATCH: package.json declares
 #   "dsh": { "bundle": { "patch": "./cordis.patch.yml" } }
@@ -8,7 +8,7 @@
 #
 # Manual install (local checkout / development, no bundle management):
 #   cd ~/.dsh/profiles/<p>
-#   dsh plugin --profile <p> add file:../<path-to>/dsh-deepseek-balance
+#   dsh plugin --profile <p> add file:../<path-to>/<checkout>   # or: add deepseek-balance-dsh
 # then append the `insert` block below to ~/.dsh/profiles/<p>/cordis.patch.yml
 # (the profile's user patch layer) and restart the profile.
 # Pick ONE route per profile: bundle management already applies this file, so
@@ -18,5 +18,5 @@
 # /dsbal/* routes) and, because the package declares `dsh.client`, the browser
 # roster entry (the bottom-right widget).
 - insert:
-    - id: dsh-deepseek-balance
-      name: dsh-deepseek-balance
+    - id: deepseek-balance-dsh
+      name: deepseek-balance-dsh

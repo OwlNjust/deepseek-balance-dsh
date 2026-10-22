@@ -2,6 +2,8 @@
 
 [![test](https://github.com/OwlNjust/DSH-DeepSeek-Balance/actions/workflows/test.yml/badge.svg)](https://github.com/OwlNjust/DSH-DeepSeek-Balance/actions/workflows/test.yml)
 
+npm package: [`deepseek-balance-dsh`](https://www.npmjs.com/package/deepseek-balance-dsh) — the repository is `DSH-DeepSeek-Balance`; the unrelated npm name `dsh-deepseek-balance` belongs to a different project.
+
 Topics: [`dsh-plugin`](https://github.com/topics/dsh-plugin) · [`deepseek-harness`](https://github.com/topics/deepseek-harness) · [`deepseek`](https://github.com/topics/deepseek)
 
 > DeepSeek balance & usage monitor for **DeepSeek Harness** — a floating widget at the
@@ -14,24 +16,33 @@ Topics: [`dsh-plugin`](https://github.com/topics/dsh-plugin) · [`deepseek-harne
 **Installation is one step:** send `https://github.com/OwlNjust/DSH-DeepSeek-Balance`
 to your agent — it knows how to install this plugin. Manual steps are below.
 
-## Installation (agent-friendly, no npm needed)
+## Installation
 
-This package has **zero runtime dependencies and is never published to npm**. There are two
-routes — **pick exactly one per profile**; using both inserts the plugin id twice (see
-"Agent notes").
+The plugin has **zero runtime dependencies** and is published on npm as
+[`deepseek-balance-dsh`](https://www.npmjs.com/package/deepseek-balance-dsh). There are two routes — a **bundle-layer** install (npm name or this
+repository) and a **manual patch-layer** install for a local checkout. **Pick exactly one per
+profile**: using both inserts the plugin id twice (see "Agent notes").
 
 ### Route A (recommended): install it as a profile *bundle* (deepseek-harness ≥ 0.2.0)
 
 The package declares `"dsh": { "bundle": { "patch": "./cordis.patch.yml" } }`, so the harness
-plugin manager can install and activate it as a profile layer — **no file editing at all**:
+plugin manager can install and activate it as a profile layer — **no file editing at all**.
+Either install spec works:
 
-- **Desktop app**: menu bar → “Manage plugins” → enter
-  `https://github.com/OwlNjust/DSH-DeepSeek-Balance`
-- **CLI**:
+- **npm name** (published package):
+
+  ```sh
+  dsh plugin --profile <profile> add deepseek-balance-dsh
+  ```
+
+- **Git repository** (source of truth):
 
   ```sh
   dsh plugin --profile <profile> add https://github.com/OwlNjust/DSH-DeepSeek-Balance
   ```
+
+- **Desktop app**: menu bar → “Manage plugins” → enter either
+  `deepseek-balance-dsh` or `https://github.com/OwlNjust/DSH-DeepSeek-Balance`
 
 The manager adds the package to the profile's `dsh.profile.bundles`, and the `cordis.patch.yml`
 shipped inside the package (it carries the `insert` row that activates the plugin) is applied as
@@ -53,8 +64,8 @@ dsh plugin --profile web add link:/tmp/dsh-deepseek-balance
 
 ```yaml
 - insert:
-    - id: dsh-deepseek-balance
-      name: dsh-deepseek-balance
+    - id: deepseek-balance-dsh
+      name: deepseek-balance-dsh
 ```
 
 4. Restart the profile:
@@ -75,7 +86,8 @@ DeepSeek **API key** (and, optionally, the platform **userToken**) → **保存*
 
 ### Agent notes
 
-- Do **not** run `npm publish`; installation is git/checkout based.
+- The npm package is **`deepseek-balance-dsh`**. Do not publish under the repository name
+  `dsh-deepseek-balance`: that name is held by an unrelated project on npm.
 - **Do not mix the routes**: route A already inserts the plugin row from the bundle layer, so
   also appending the same `insert` row by hand inserts the plugin id twice (cordis collapses
   rows that share an id into one, so this **fails silently** — it only leaves a duplicate row
@@ -84,7 +96,7 @@ DeepSeek **API key** (and, optionally, the platform **userToken**) → **保存*
   the result must be `1`:
 
   ```sh
-  dsh --profile web --dump-config | grep -c 'id: dsh-deepseek-balance'
+  dsh --profile web --dump-config | grep -c 'id: deepseek-balance-dsh'
   ```
 
   If it prints `2`, delete the hand-written block from `cordis.patch.yml` (keep the package in
@@ -93,7 +105,7 @@ DeepSeek **API key** (and, optionally, the platform **userToken**) → **保存*
 - Configuration and balance history are stored in `~/.deepseek-balance.json`
   (mode 0600) — never echo its contents.
 - Uninstall: remove the row from `cordis.patch.yml`, delete
-  `~/.dsh/profiles/web/node_modules/dsh-deepseek-balance`, restart `dsh web`.
+  `~/.dsh/profiles/web/node_modules/deepseek-balance-dsh`, restart `dsh web`.
 
 ## Requirements
 
@@ -162,7 +174,7 @@ Override fields per entry id in the profile's patch layer (`config:` replaces th
 object, so unlisted fields fall back to the defaults):
 
 ```yaml
-- id: dsh-deepseek-balance
+- id: deepseek-balance-dsh
   config:
     pollIntervalMs: 900000     # poll cadence, 30s .. 24h, default 5 min
     historyDays: 180           # snapshot retention / custom-window cap, 1 .. 400, default 90

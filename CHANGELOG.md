@@ -1,8 +1,26 @@
 # Changelog
 
-Notable changes to **dsh-deepseek-balance**. The package is deliberately not
-published to npm — a git tag is the release, and installation happens through the
-harness plugin manager or a local checkout (see the README).
+Notable changes to the plugin. The repository is `DSH-DeepSeek-Balance`; the package
+is published on npm as [`deepseek-balance-dsh`](https://www.npmjs.com/package/deepseek-balance-dsh)
+(the npm name `dsh-deepseek-balance` belongs to an unrelated project). Git tags mark
+releases; installation goes through the harness plugin manager or a local checkout
+(see the README).
+
+## 0.2.1 — 2026-10-22
+
+**First npm publication.** No behaviour changes; the distribution identity changed.
+
+- Renamed the package to `deepseek-balance-dsh` so it can be published: the npm name
+  `dsh-deepseek-balance` is held by an unrelated project (published 2026-08-14).
+  The repository, the state file (`~/.deepseek-balance.json`) and the agent tool
+  (`deepseek_balance`) keep their names, so existing configuration and model usage
+  are unaffected.
+- Everything that must match the package name follows it: the client artifact's
+  `__ModuleLoader__` id and the `insert` row in the bundled `cordis.patch.yml`.
+  **Upgrading requires reinstalling the plugin** (the installed directory name is
+  the package name) and restarting the profile — a 0.2.0 install will not load
+  `deepseek-balance-dsh` by itself.
+- Added npm metadata (`repository`, `homepage`, `bugs`, `keywords`).
 
 ## 0.2.0 — 2026-09-30
 
