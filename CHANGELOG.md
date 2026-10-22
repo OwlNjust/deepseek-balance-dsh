@@ -1,10 +1,23 @@
 # Changelog
 
-Notable changes to the plugin. The repository is `DSH-DeepSeek-Balance`; the package
-is published on npm as [`deepseek-balance-dsh`](https://www.npmjs.com/package/deepseek-balance-dsh)
-(the npm name `dsh-deepseek-balance` belongs to an unrelated project). Git tags mark
-releases; installation goes through the harness plugin manager or a local checkout
-(see the README).
+Notable changes to the plugin. Repository and npm package are both named
+[`deepseek-balance-dsh`](https://github.com/OwlNjust/deepseek-balance-dsh) /
+[npm](https://www.npmjs.com/package/deepseek-balance-dsh) (the npm name
+`dsh-deepseek-balance` belongs to an unrelated project). Git tags mark releases;
+installation goes through the harness plugin manager or a local checkout (see the README).
+
+## 0.2.2 — 2026-10-23
+
+The GitHub repository was renamed to `deepseek-balance-dsh`, so the package and the
+repository now carry one name. Metadata and links only — no code changes.
+
+- `package.json` `repository` / `homepage` / `bugs` point at
+  `github.com/OwlNjust/deepseek-balance-dsh`.
+- Both READMEs: title, CI badge, clone URL and install spec use the new repository
+  name; the "npm name differs from the repository" note is gone (the note that npm's
+  `dsh-deepseek-balance` is an unrelated project stays).
+- Republishing so the registry metadata and the packed README are consistent; the
+  0.2.1 tarball's old URLs keep working through GitHub's redirect either way.
 
 ## 0.2.1 — 2026-10-22
 

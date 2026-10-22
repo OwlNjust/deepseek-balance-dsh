@@ -1,9 +1,9 @@
-# dsh-deepseek-balance
+# deepseek-balance-dsh
 
-[![test](https://github.com/OwlNjust/DSH-DeepSeek-Balance/actions/workflows/test.yml/badge.svg)](https://github.com/OwlNjust/DSH-DeepSeek-Balance/actions/workflows/test.yml)
+[![test](https://github.com/OwlNjust/deepseek-balance-dsh/actions/workflows/test.yml/badge.svg)](https://github.com/OwlNjust/deepseek-balance-dsh/actions/workflows/test.yml)
 
-npm 包名：[`deepseek-balance-dsh`](https://www.npmjs.com/package/deepseek-balance-dsh) —— 仓库名为 `DSH-DeepSeek-Balance`；
-npm 上的 `dsh-deepseek-balance` 是**另一个无关项目**，与本插件无关。
+仓库与 npm 包同名：**`deepseek-balance-dsh`** · [npm](https://www.npmjs.com/package/deepseek-balance-dsh)。
+（npm 上的 `dsh-deepseek-balance` 是**另一个无关项目**，与本插件无关。）
 
 主题：[`dsh-plugin`](https://github.com/topics/dsh-plugin) · [`deepseek-harness`](https://github.com/topics/deepseek-harness) · [`deepseek`](https://github.com/topics/deepseek)
 
@@ -14,7 +14,7 @@ npm 上的 `dsh-deepseek-balance` 是**另一个无关项目**，与本插件无
 
 ---
 
-**安装只需一步：** 把 `https://github.com/OwlNjust/DSH-DeepSeek-Balance`
+**安装只需一步：** 把 `https://github.com/OwlNjust/deepseek-balance-dsh`
 发给您的 agent，它就知道如何自动安装本插件。手动安装步骤如下。
 
 ## 安装
@@ -37,11 +37,11 @@ npm 上的 `dsh-deepseek-balance` 是**另一个无关项目**，与本插件无
 - **Git 仓库**（源码为准）：
 
   ```sh
-  dsh plugin --profile <profile> add https://github.com/OwlNjust/DSH-DeepSeek-Balance
+  dsh plugin --profile <profile> add https://github.com/OwlNjust/deepseek-balance-dsh
   ```
 
 - **桌面端**：菜单栏 →「管理插件 / Manage plugins」→ 填入
-  `deepseek-balance-dsh` 或 `https://github.com/OwlNjust/DSH-DeepSeek-Balance`
+  `deepseek-balance-dsh` 或 `https://github.com/OwlNjust/deepseek-balance-dsh`
 
 管理器会把包加入 profile 的 `dsh.profile.bundles`，包内的 `cordis.patch.yml`（含激活插件的
 `insert` 行）随之作为组合层生效。重载/重启 profile 后右下角即出现小组件。
@@ -50,11 +50,11 @@ npm 上的 `dsh-deepseek-balance` 是**另一个无关项目**，与本插件无
 
 ```sh
 # 1. 克隆/复制仓库到任意可访问路径
-git clone https://github.com/OwlNjust/DSH-DeepSeek-Balance.git /tmp/dsh-deepseek-balance
+git clone https://github.com/OwlNjust/deepseek-balance-dsh.git /tmp/deepseek-balance-dsh
 
 # 2. 安装到 web profile（file: = 快照；link: = 源码符号链接，改代码即生效）
 cd ~/.dsh/profiles/web
-dsh plugin --profile web add link:/tmp/dsh-deepseek-balance
+dsh plugin --profile web add link:/tmp/deepseek-balance-dsh
 ```
 
 3. 把下面这段**追加**到 `~/.dsh/profiles/web/cordis.patch.yml`（profile 的用户补丁层）：

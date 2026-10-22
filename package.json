@@ -1,6 +1,6 @@
 {
   "name": "deepseek-balance-dsh",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "DeepSeek balance monitor for DeepSeek Harness: real-time topped-up balance, period consumption (per model) and token usage (cache-hit input / cache-miss input / output), plus peak/off-peak price reminder (Liang Wenfeng / Liang Wengu).",
   "license": "MIT",
   "type": "module",
@@ -52,10 +52,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OwlNjust/DSH-DeepSeek-Balance.git"
+    "url": "git+https://github.com/OwlNjust/deepseek-balance-dsh.git"
   },
-  "homepage": "https://github.com/OwlNjust/DSH-DeepSeek-Balance#readme",
+  "homepage": "https://github.com/OwlNjust/deepseek-balance-dsh#readme",
   "bugs": {
-    "url": "https://github.com/OwlNjust/DSH-DeepSeek-Balance/issues"
+    "url": "https://github.com/OwlNjust/deepseek-balance-dsh/issues"
   }
 }

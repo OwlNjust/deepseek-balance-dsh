@@ -1,8 +1,9 @@
-# dsh-deepseek-balance
+# deepseek-balance-dsh
 
-[![test](https://github.com/OwlNjust/DSH-DeepSeek-Balance/actions/workflows/test.yml/badge.svg)](https://github.com/OwlNjust/DSH-DeepSeek-Balance/actions/workflows/test.yml)
+[![test](https://github.com/OwlNjust/deepseek-balance-dsh/actions/workflows/test.yml/badge.svg)](https://github.com/OwlNjust/deepseek-balance-dsh/actions/workflows/test.yml)
 
-npm package: [`deepseek-balance-dsh`](https://www.npmjs.com/package/deepseek-balance-dsh) — the repository is `DSH-DeepSeek-Balance`; the unrelated npm name `dsh-deepseek-balance` belongs to a different project.
+Repository and npm package are both **`deepseek-balance-dsh`** · [npm](https://www.npmjs.com/package/deepseek-balance-dsh).
+(The npm name `dsh-deepseek-balance` belongs to an unrelated project.)
 
 Topics: [`dsh-plugin`](https://github.com/topics/dsh-plugin) · [`deepseek-harness`](https://github.com/topics/deepseek-harness) · [`deepseek`](https://github.com/topics/deepseek)
 
@@ -13,7 +14,7 @@ Topics: [`dsh-plugin`](https://github.com/topics/dsh-plugin) · [`deepseek-harne
 
 ---
 
-**Installation is one step:** send `https://github.com/OwlNjust/DSH-DeepSeek-Balance`
+**Installation is one step:** send `https://github.com/OwlNjust/deepseek-balance-dsh`
 to your agent — it knows how to install this plugin. Manual steps are below.
 
 ## Installation
@@ -38,11 +39,11 @@ Either install spec works:
 - **Git repository** (source of truth):
 
   ```sh
-  dsh plugin --profile <profile> add https://github.com/OwlNjust/DSH-DeepSeek-Balance
+  dsh plugin --profile <profile> add https://github.com/OwlNjust/deepseek-balance-dsh
   ```
 
 - **Desktop app**: menu bar → “Manage plugins” → enter either
-  `deepseek-balance-dsh` or `https://github.com/OwlNjust/DSH-DeepSeek-Balance`
+  `deepseek-balance-dsh` or `https://github.com/OwlNjust/deepseek-balance-dsh`
 
 The manager adds the package to the profile's `dsh.profile.bundles`, and the `cordis.patch.yml`
 shipped inside the package (it carries the `insert` row that activates the plugin) is applied as
@@ -52,11 +53,11 @@ a bundle layer. After a reload/restart the bottom-right widget appears.
 
 ```sh
 # 1. Clone or copy the repository anywhere
-git clone https://github.com/OwlNjust/DSH-DeepSeek-Balance.git /tmp/dsh-deepseek-balance
+git clone https://github.com/OwlNjust/deepseek-balance-dsh.git /tmp/deepseek-balance-dsh
 
 # 2. Install it into the web profile (file: = snapshot; link: = live symlink)
 cd ~/.dsh/profiles/web
-dsh plugin --profile web add link:/tmp/dsh-deepseek-balance
+dsh plugin --profile web add link:/tmp/deepseek-balance-dsh
 ```
 
 3. Append this block to `~/.dsh/profiles/web/cordis.patch.yml` (the profile's
